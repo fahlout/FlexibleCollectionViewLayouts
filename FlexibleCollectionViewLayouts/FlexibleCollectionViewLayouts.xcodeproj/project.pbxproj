@@ -8,20 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		6ACFB4092146B9BE00D789F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4082146B9BE00D789F9 /* AppDelegate.swift */; };
-		6ACFB40B2146B9BE00D789F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB40A2146B9BE00D789F9 /* ViewController.swift */; };
-		6ACFB40E2146B9BE00D789F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ACFB40C2146B9BE00D789F9 /* Main.storyboard */; };
 		6ACFB4102146B9C000D789F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ACFB40F2146B9C000D789F9 /* Assets.xcassets */; };
 		6ACFB4132146B9C000D789F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ACFB4112146B9C000D789F9 /* LaunchScreen.storyboard */; };
+		6ACFB4202146BA7100D789F9 /* FlexibleColumnLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB41D2146BA7100D789F9 /* FlexibleColumnLayout.swift */; };
+		6ACFB4212146BA7100D789F9 /* FlexibleColumnLayoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB41E2146BA7100D789F9 /* FlexibleColumnLayoutDataSource.swift */; };
+		6ACFB4222146BA7100D789F9 /* FlexibleColumnLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB41F2146BA7100D789F9 /* FlexibleColumnLayoutDelegate.swift */; };
+		6ACFB4262146BA7B00D789F9 /* FlexibleGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4232146BA7B00D789F9 /* FlexibleGridLayout.swift */; };
+		6ACFB4272146BA7B00D789F9 /* FlexibleGridLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4242146BA7B00D789F9 /* FlexibleGridLayoutDelegate.swift */; };
+		6ACFB4282146BA7B00D789F9 /* FlexibleGridLayoutDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4252146BA7B00D789F9 /* FlexibleGridLayoutDataSource.swift */; };
+		6ACFB42B2146BAA700D789F9 /* FlexibleGridLayoutAdvancedGridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB42A2146BAA700D789F9 /* FlexibleGridLayoutAdvancedGridCollectionViewController.swift */; };
+		6ACFB42D2146BAB100D789F9 /* FlexibleColumnLayoutAdvancedDemoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB42C2146BAB100D789F9 /* FlexibleColumnLayoutAdvancedDemoCollectionViewController.swift */; };
+		6ACFB42F2146BAB800D789F9 /* FlexibleColumnLayoutDefaultGridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB42E2146BAB800D789F9 /* FlexibleColumnLayoutDefaultGridCollectionViewController.swift */; };
+		6ACFB4352146BAE200D789F9 /* AsyncFetcherOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4322146BAE200D789F9 /* AsyncFetcherOperation.swift */; };
+		6ACFB4362146BAE200D789F9 /* AsyncFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4332146BAE200D789F9 /* AsyncFetcher.swift */; };
+		6ACFB4372146BAE200D789F9 /* DisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4342146BAE200D789F9 /* DisplayData.swift */; };
+		6ACFB43A2146BB4100D789F9 /* DemoMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4392146BB4100D789F9 /* DemoMenuTableViewController.swift */; };
+		6ACFB43D2146BD3500D789F9 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB43C2146BD3500D789F9 /* TextCell.swift */; };
+		6ACFB4422146BD7A00D789F9 /* TitleCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACFB4402146BD7A00D789F9 /* TitleCollectionReusableView.xib */; };
+		6ACFB4432146BD7A00D789F9 /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4412146BD7A00D789F9 /* TitleCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6ACFB4052146B9BE00D789F9 /* FlexibleCollectionViewLayouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlexibleCollectionViewLayouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACFB4082146B9BE00D789F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6ACFB40A2146B9BE00D789F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6ACFB40D2146B9BE00D789F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6ACFB40F2146B9C000D789F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ACFB4122146B9C000D789F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6ACFB4142146B9C000D789F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ACFB41D2146BA7100D789F9 /* FlexibleColumnLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleColumnLayout.swift; sourceTree = "<group>"; };
+		6ACFB41E2146BA7100D789F9 /* FlexibleColumnLayoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleColumnLayoutDataSource.swift; sourceTree = "<group>"; };
+		6ACFB41F2146BA7100D789F9 /* FlexibleColumnLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleColumnLayoutDelegate.swift; sourceTree = "<group>"; };
+		6ACFB4232146BA7B00D789F9 /* FlexibleGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleGridLayout.swift; sourceTree = "<group>"; };
+		6ACFB4242146BA7B00D789F9 /* FlexibleGridLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleGridLayoutDelegate.swift; sourceTree = "<group>"; };
+		6ACFB4252146BA7B00D789F9 /* FlexibleGridLayoutDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleGridLayoutDataSource.swift; sourceTree = "<group>"; };
+		6ACFB42A2146BAA700D789F9 /* FlexibleGridLayoutAdvancedGridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleGridLayoutAdvancedGridCollectionViewController.swift; sourceTree = "<group>"; };
+		6ACFB42C2146BAB100D789F9 /* FlexibleColumnLayoutAdvancedDemoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleColumnLayoutAdvancedDemoCollectionViewController.swift; sourceTree = "<group>"; };
+		6ACFB42E2146BAB800D789F9 /* FlexibleColumnLayoutDefaultGridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleColumnLayoutDefaultGridCollectionViewController.swift; sourceTree = "<group>"; };
+		6ACFB4322146BAE200D789F9 /* AsyncFetcherOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncFetcherOperation.swift; sourceTree = "<group>"; };
+		6ACFB4332146BAE200D789F9 /* AsyncFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncFetcher.swift; sourceTree = "<group>"; };
+		6ACFB4342146BAE200D789F9 /* DisplayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayData.swift; sourceTree = "<group>"; };
+		6ACFB4392146BB4100D789F9 /* DemoMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMenuTableViewController.swift; sourceTree = "<group>"; };
+		6ACFB43C2146BD3500D789F9 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		6ACFB4402146BD7A00D789F9 /* TitleCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCollectionReusableView.xib; sourceTree = "<group>"; };
+		6ACFB4412146BD7A00D789F9 /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +83,107 @@
 			isa = PBXGroup;
 			children = (
 				6ACFB4082146B9BE00D789F9 /* AppDelegate.swift */,
-				6ACFB40A2146B9BE00D789F9 /* ViewController.swift */,
-				6ACFB40C2146B9BE00D789F9 /* Main.storyboard */,
+				6ACFB4302146BAC200D789F9 /* Helpers */,
+				6ACFB43F2146BD6300D789F9 /* Views */,
+				6ACFB41A2146BA4100D789F9 /* Layouts */,
+				6ACFB4292146BA8900D789F9 /* Demos Controllers */,
 				6ACFB40F2146B9C000D789F9 /* Assets.xcassets */,
 				6ACFB4112146B9C000D789F9 /* LaunchScreen.storyboard */,
 				6ACFB4142146B9C000D789F9 /* Info.plist */,
 			);
 			path = FlexibleCollectionViewLayouts;
+			sourceTree = "<group>";
+		};
+		6ACFB41A2146BA4100D789F9 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB41C2146BA5F00D789F9 /* Flexible Grid */,
+				6ACFB41B2146BA5300D789F9 /* Flexible Column */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		6ACFB41B2146BA5300D789F9 /* Flexible Column */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB41D2146BA7100D789F9 /* FlexibleColumnLayout.swift */,
+				6ACFB41E2146BA7100D789F9 /* FlexibleColumnLayoutDataSource.swift */,
+				6ACFB41F2146BA7100D789F9 /* FlexibleColumnLayoutDelegate.swift */,
+			);
+			path = "Flexible Column";
+			sourceTree = "<group>";
+		};
+		6ACFB41C2146BA5F00D789F9 /* Flexible Grid */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB4232146BA7B00D789F9 /* FlexibleGridLayout.swift */,
+				6ACFB4252146BA7B00D789F9 /* FlexibleGridLayoutDataSource.swift */,
+				6ACFB4242146BA7B00D789F9 /* FlexibleGridLayoutDelegate.swift */,
+			);
+			path = "Flexible Grid";
+			sourceTree = "<group>";
+		};
+		6ACFB4292146BA8900D789F9 /* Demos Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB4382146BB4100D789F9 /* Demo Menu */,
+				6ACFB42A2146BAA700D789F9 /* FlexibleGridLayoutAdvancedGridCollectionViewController.swift */,
+				6ACFB42C2146BAB100D789F9 /* FlexibleColumnLayoutAdvancedDemoCollectionViewController.swift */,
+				6ACFB42E2146BAB800D789F9 /* FlexibleColumnLayoutDefaultGridCollectionViewController.swift */,
+			);
+			path = "Demos Controllers";
+			sourceTree = "<group>";
+		};
+		6ACFB4302146BAC200D789F9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB4312146BAE200D789F9 /* Async data fetcher */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6ACFB4312146BAE200D789F9 /* Async data fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB4322146BAE200D789F9 /* AsyncFetcherOperation.swift */,
+				6ACFB4332146BAE200D789F9 /* AsyncFetcher.swift */,
+				6ACFB4342146BAE200D789F9 /* DisplayData.swift */,
+			);
+			path = "Async data fetcher";
+			sourceTree = "<group>";
+		};
+		6ACFB4382146BB4100D789F9 /* Demo Menu */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB4392146BB4100D789F9 /* DemoMenuTableViewController.swift */,
+			);
+			path = "Demo Menu";
+			sourceTree = "<group>";
+		};
+		6ACFB43B2146BD2100D789F9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB43C2146BD3500D789F9 /* TextCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		6ACFB43E2146BD4B00D789F9 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB4412146BD7A00D789F9 /* TitleCollectionReusableView.swift */,
+				6ACFB4402146BD7A00D789F9 /* TitleCollectionReusableView.xib */,
+			);
+			path = "Reusable Views";
+			sourceTree = "<group>";
+		};
+		6ACFB43F2146BD6300D789F9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6ACFB43B2146BD2100D789F9 /* Cells */,
+				6ACFB43E2146BD4B00D789F9 /* Reusable Views */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ACFB4132146B9C000D789F9 /* LaunchScreen.storyboard in Resources */,
+				6ACFB4422146BD7A00D789F9 /* TitleCollectionReusableView.xib in Resources */,
 				6ACFB4102146B9C000D789F9 /* Assets.xcassets in Resources */,
-				6ACFB40E2146B9BE00D789F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +257,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6ACFB40B2146B9BE00D789F9 /* ViewController.swift in Sources */,
+				6ACFB4212146BA7100D789F9 /* FlexibleColumnLayoutDataSource.swift in Sources */,
+				6ACFB43A2146BB4100D789F9 /* DemoMenuTableViewController.swift in Sources */,
+				6ACFB4372146BAE200D789F9 /* DisplayData.swift in Sources */,
+				6ACFB4262146BA7B00D789F9 /* FlexibleGridLayout.swift in Sources */,
+				6ACFB4272146BA7B00D789F9 /* FlexibleGridLayoutDelegate.swift in Sources */,
+				6ACFB4282146BA7B00D789F9 /* FlexibleGridLayoutDataSource.swift in Sources */,
+				6ACFB4362146BAE200D789F9 /* AsyncFetcher.swift in Sources */,
+				6ACFB42D2146BAB100D789F9 /* FlexibleColumnLayoutAdvancedDemoCollectionViewController.swift in Sources */,
+				6ACFB4432146BD7A00D789F9 /* TitleCollectionReusableView.swift in Sources */,
+				6ACFB4202146BA7100D789F9 /* FlexibleColumnLayout.swift in Sources */,
+				6ACFB4352146BAE200D789F9 /* AsyncFetcherOperation.swift in Sources */,
+				6ACFB43D2146BD3500D789F9 /* TextCell.swift in Sources */,
+				6ACFB42B2146BAA700D789F9 /* FlexibleGridLayoutAdvancedGridCollectionViewController.swift in Sources */,
+				6ACFB42F2146BAB800D789F9 /* FlexibleColumnLayoutDefaultGridCollectionViewController.swift in Sources */,
 				6ACFB4092146B9BE00D789F9 /* AppDelegate.swift in Sources */,
+				6ACFB4222146BA7100D789F9 /* FlexibleColumnLayoutDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6ACFB40C2146B9BE00D789F9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6ACFB40D2146B9BE00D789F9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6ACFB4112146B9C000D789F9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
