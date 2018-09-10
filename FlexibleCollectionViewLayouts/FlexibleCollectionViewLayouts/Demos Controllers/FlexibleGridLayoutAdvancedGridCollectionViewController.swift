@@ -28,6 +28,8 @@ class FlexibleGridLayoutAdvancedGridCollectionViewController: UICollectionViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        collectionView?.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        
         collectionView?.backgroundColor = UIColor.white
         navigationItem.largeTitleDisplayMode = .never
 

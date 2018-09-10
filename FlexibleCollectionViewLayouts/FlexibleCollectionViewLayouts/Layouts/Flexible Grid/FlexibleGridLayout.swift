@@ -76,13 +76,13 @@ public class FlexibleGridLayout: UICollectionViewLayout {
             let headerSize = delegate.collectionView(collectionView, layout: self, referenceSizeForHeaderInSection: section)
             if headerSize.height > 0.0 {
                 let headerAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: IndexPath(item: 0, section: section))
-                headerAttributes.frame = CGRect(x: 0, y: maxY, width: contentWidth, height: headerSize.height)
+                headerAttributes.frame = CGRect(x: 0, y: maxY, width: contentWidth - sectionLeftRightInset, height: headerSize.height)
                 headerCache.append(headerAttributes)
             }
 
             maxY = maxY + headerSize.height
             var yOffset = [CGFloat](repeating: maxY, count: numberOfColumns)
-            let columnWidth = contentWidth / CGFloat(numberOfColumns)
+            let columnWidth = (contentWidth - sectionLeftRightInset - (CGFloat(numberOfColumns - 1) * interitemSpacing)) / CGFloat(numberOfColumns)
 
             for item in 0 ..< numberOfItems {
 
@@ -112,12 +112,11 @@ public class FlexibleGridLayout: UICollectionViewLayout {
                     case let .fromTo(startColumn, endColumn):
                         leadingColumn = startColumn
                         return (startColumn...endColumn).reduce(0.0, { (result, column) -> CGFloat in
-                            result + columnWidth + CGFloat(column) * interitemSpacing
+                            result + columnWidth + CGFloat(endColumn - column) * interitemSpacing
                         })
                     }
                 }
 
-                // 4. Asks the delegate for the height of the picture and the annotation and calculates the cell frame.
                 let height = itemHeight
                 let width = itemWidth
                 

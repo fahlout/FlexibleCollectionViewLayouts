@@ -13,6 +13,8 @@ class FlexibleColumnLayoutAdvancedDemoCollectionViewController: UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         collectionView?.backgroundColor = UIColor.white
         navigationItem.largeTitleDisplayMode = .never
         
