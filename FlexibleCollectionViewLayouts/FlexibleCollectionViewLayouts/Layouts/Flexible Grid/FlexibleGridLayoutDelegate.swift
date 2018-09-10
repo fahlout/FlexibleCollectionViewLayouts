@@ -15,7 +15,6 @@ public protocol FlexibleGridLayoutDelegate: class {
     
     // Row and Column dimensions
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, heightForRow row: Int, inSection section: Int) -> CGFloat
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, columnSizeForColumn column: Int, inSection section: Int) -> FlexibleColumnWidth
     
     // Spacing and insets
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, lineSpacingForSection section: Int) -> CGFloat
