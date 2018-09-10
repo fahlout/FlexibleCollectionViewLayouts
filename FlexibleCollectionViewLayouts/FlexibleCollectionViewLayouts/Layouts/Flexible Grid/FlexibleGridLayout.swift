@@ -2,47 +2,24 @@
 //  FlexibleGridLayout.swift
 //
 //  Created by Niklas Fahl on 8/29/18.
-//  Copyright © 2018 Center for Advanced Public Safety. All rights reserved.
+//  Copyright © 2018 fahlout. All rights reserved.
 //
 
 import UIKit
 
-public let FlexibleGridLayoutEqualRowHeightToColumnWidth: CGFloat = -1.0
-
-public enum FlexibleColumnWidth {
-    case equalRatio
-    case ratio(CGFloat)
-    case equalTo(CGFloat)
-}
-
-public enum FlexibleGridSpan {
-    case fromTo(Int, Int)
-    case at(Int)
-}
-
 public class FlexibleGridLayout: UICollectionViewLayout {
-    //1. Pinterest Layout Delegate
+    
     public weak var delegate: FlexibleGridLayoutDelegate?
     public weak var dataSource: FlexibleGridLayoutDataSource?
 
-    // Array to keep a cache of attributes
-    public var itemCache = [IndexPath: UICollectionViewLayoutAttributes]()
-    fileprivate var headerCache = [UICollectionViewLayoutAttributes]()
-    fileprivate var footerCache = [UICollectionViewLayoutAttributes]()
+    private(set) var itemCache = [IndexPath: UICollectionViewLayoutAttributes]()
+    private(set) var sectionBackgroundCache = [UICollectionViewLayoutAttributes]()
+    private(set) var headerCache = [UICollectionViewLayoutAttributes]()
+    private(set) var footerCache = [UICollectionViewLayoutAttributes]()
+    private(set) var cachedContentSize: CGSize = .zero
 
-    // Content height and size
-    fileprivate var contentHeight: CGFloat = 0
-
-    fileprivate var contentWidth: CGFloat {
-        guard let collectionView = collectionView else {
-            return 0
-        }
-        let insets = collectionView.contentInset
-        return collectionView.bounds.width - (insets.left + insets.right)
-    }
-
-    public override var collectionViewContentSize: CGSize {
-        return CGSize(width: contentWidth, height: contentHeight)
+    override open var collectionViewContentSize: CGSize {
+        return self.cachedContentSize
     }
 
     public override func prepare() {
@@ -51,16 +28,19 @@ public class FlexibleGridLayout: UICollectionViewLayout {
         guard let collectionView = collectionView, let delegate = delegate, let dataSource = dataSource else { return }
 
         // Reset cache
-        itemCache = [IndexPath: UICollectionViewLayoutAttributes]()
-        headerCache = [UICollectionViewLayoutAttributes]()
-        footerCache = [UICollectionViewLayoutAttributes]()
-
+        itemCache.removeAll()
+        sectionBackgroundCache.removeAll()
+        headerCache.removeAll()
+        footerCache.removeAll()
+        
+        // Layout properties
         let numberOfSections = collectionView.numberOfSections
         var maxY: CGFloat = 0
+        let contentWidth = collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right)
 
-        // 3. Iterates through the list of items in the first section
         for section in 0 ..< numberOfSections {
             // Setup initial max y for section
+            let sectionStartY = maxY
             let sectionInsets = delegate.collectionView(collectionView, layout: self, insetsForSection: section)
             maxY = maxY + sectionInsets.top
             
@@ -85,7 +65,6 @@ public class FlexibleGridLayout: UICollectionViewLayout {
             let columnWidth = (contentWidth - sectionLeftRightInset - (CGFloat(numberOfColumns - 1) * interitemSpacing)) / CGFloat(numberOfColumns)
 
             for item in 0 ..< numberOfItems {
-
                 let indexPath = IndexPath(item: item, section: section)
                 let columnSpan = dataSource.collectionView(collectionView, columnSpanForItemIndexPath: indexPath)
                 let rowSpan = dataSource.collectionView(collectionView, rowSpanForItemIndexPath: indexPath)
@@ -126,13 +105,10 @@ public class FlexibleGridLayout: UICollectionViewLayout {
                 let xOffset = columnOffset + CGFloat(leadingColumn) * interitemSpacing + sectionInsets.left
                 let frame = CGRect(x: xOffset, y: yOffset[leadingColumn], width: width, height: height)
 
-                // 5. Creates an UICollectionViewLayoutItem with the frame and add it to the cache
+                // Creates an UICollectionViewLayoutItem with the frame and add it to the cache
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 attributes.frame = frame
                 itemCache[indexPath] = attributes
-
-                // 6. Updates the collection view content height
-                contentHeight = max(contentHeight, frame.maxY)
                 
                 // Update y offset
                 switch columnSpan {
@@ -162,7 +138,15 @@ public class FlexibleGridLayout: UICollectionViewLayout {
 
             // Update max y for next section
             maxY = maxY + footerSize.height + sectionInsets.bottom
-            contentHeight = max(contentHeight, maxY)
+            cachedContentSize = CGSize(width: contentWidth, height: maxY)
+            
+            // Section Background Attributes
+            if delegate.collectionView(collectionView, layout: self, shouldRenderSectionBackgroundForSection: section) {
+                let sectionBackgroundAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionBackground, with: IndexPath(item: 0, section: section))
+                sectionBackgroundAttributes.frame = CGRect(x: 0, y: sectionStartY, width: contentWidth, height: maxY - sectionStartY)
+                sectionBackgroundAttributes.zIndex = -1
+                sectionBackgroundCache.append(sectionBackgroundAttributes)
+            }
         }
     }
 

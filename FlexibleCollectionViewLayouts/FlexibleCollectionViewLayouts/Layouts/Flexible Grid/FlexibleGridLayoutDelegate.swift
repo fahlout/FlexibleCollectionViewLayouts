@@ -3,7 +3,7 @@
 //  CollectionViewFlowTest
 //
 //  Created by Niklas Fahl on 9/7/18.
-//  Copyright © 2018 Center for Advanced Public Safety. All rights reserved.
+//  Copyright © 2018 fahlout. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,9 @@ public protocol FlexibleGridLayoutDelegate: class {
     // Header and Footer sizes
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize
+    
+    // Section background
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, shouldRenderSectionBackgroundForSection section: Int) -> Bool
     
     // Row and Column dimensions
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, heightForRow row: Int, inSection section: Int) -> CGFloat
@@ -31,6 +34,11 @@ extension FlexibleGridLayoutDelegate {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return .zero
+    }
+    
+    // Section background
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, shouldRenderSectionBackgroundForSection section: Int) -> Bool {
+        return false
     }
     
     // Row and Column dimensions

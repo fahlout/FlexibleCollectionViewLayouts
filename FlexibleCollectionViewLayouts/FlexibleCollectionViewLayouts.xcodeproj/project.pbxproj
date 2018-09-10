@@ -26,6 +26,8 @@
 		6ACFB43D2146BD3500D789F9 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB43C2146BD3500D789F9 /* TextCell.swift */; };
 		6ACFB4422146BD7A00D789F9 /* TitleCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACFB4402146BD7A00D789F9 /* TitleCollectionReusableView.xib */; };
 		6ACFB4432146BD7A00D789F9 /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4412146BD7A00D789F9 /* TitleCollectionReusableView.swift */; };
+		6ACFB4452146FE5200D789F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4442146FE5200D789F9 /* Constants.swift */; };
+		6ACFB4472146FE8800D789F9 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFB4462146FE8800D789F9 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		6ACFB43C2146BD3500D789F9 /* TextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
 		6ACFB4402146BD7A00D789F9 /* TitleCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCollectionReusableView.xib; sourceTree = "<group>"; };
 		6ACFB4412146BD7A00D789F9 /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		6ACFB4442146FE5200D789F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6ACFB4462146FE8800D789F9 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		6ACFB41A2146BA4100D789F9 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				6ACFB4442146FE5200D789F9 /* Constants.swift */,
+				6ACFB4462146FE8800D789F9 /* Enums.swift */,
 				6ACFB41C2146BA5F00D789F9 /* Flexible Grid */,
 				6ACFB41B2146BA5300D789F9 /* Flexible Column */,
 			);
@@ -258,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ACFB4212146BA7100D789F9 /* FlexibleColumnLayoutDataSource.swift in Sources */,
+				6ACFB4452146FE5200D789F9 /* Constants.swift in Sources */,
 				6ACFB43A2146BB4100D789F9 /* DemoMenuTableViewController.swift in Sources */,
 				6ACFB4372146BAE200D789F9 /* DisplayData.swift in Sources */,
 				6ACFB4262146BA7B00D789F9 /* FlexibleGridLayout.swift in Sources */,
@@ -272,6 +279,7 @@
 				6ACFB42B2146BAA700D789F9 /* FlexibleGridLayoutAdvancedGridCollectionViewController.swift in Sources */,
 				6ACFB42F2146BAB800D789F9 /* FlexibleColumnLayoutDefaultGridCollectionViewController.swift in Sources */,
 				6ACFB4092146B9BE00D789F9 /* AppDelegate.swift in Sources */,
+				6ACFB4472146FE8800D789F9 /* Enums.swift in Sources */,
 				6ACFB4222146BA7100D789F9 /* FlexibleColumnLayoutDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

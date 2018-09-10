@@ -3,12 +3,10 @@
 //  CollectionViewFlowTest
 //
 //  Created by Niklas Fahl on 8/29/18.
-//  Copyright © 2018 Center for Advanced Public Safety. All rights reserved.
+//  Copyright © 2018 fahlout. All rights reserved.
 //
 
 import UIKit
-
-public let FlexibleColumnLayoutEqualHeightToColumnWidth: CGFloat = -1.0
 
 public class FlexibleColumnLayout: UICollectionViewLayout {
     
@@ -16,6 +14,7 @@ public class FlexibleColumnLayout: UICollectionViewLayout {
     public weak var dataSource: FlexibleColumnLayoutDataSource?
     
     private(set) var itemCache = [IndexPath: UICollectionViewLayoutAttributes]()
+    private(set) var sectionBackgroundCache = [UICollectionViewLayoutAttributes]()
     private(set) var headerCache = [UICollectionViewLayoutAttributes]()
     private(set) var footerCache = [UICollectionViewLayoutAttributes]()
     private(set) var cachedContentSize: CGSize = .zero
@@ -29,6 +28,7 @@ public class FlexibleColumnLayout: UICollectionViewLayout {
         
         // Clear cache
         itemCache.removeAll()
+        sectionBackgroundCache.removeAll()
         headerCache.removeAll()
         footerCache.removeAll()
         
@@ -39,6 +39,7 @@ public class FlexibleColumnLayout: UICollectionViewLayout {
         
         for section in 0 ..< numberOfSections {
             // Setup initial max y for section
+            let sectionStartY = maxY
             let sectionInsets = delegate.collectionView(collectionView, layout: self, insetsForSection: section)
             maxY = maxY + sectionInsets.top
             
@@ -162,13 +163,21 @@ public class FlexibleColumnLayout: UICollectionViewLayout {
             // Update max y for next section
             maxY = maxY + footerSize.height + sectionInsets.bottom
             cachedContentSize = CGSize(width: contentWidth, height: maxY)
+            
+            // Section Background Attributes
+            if delegate.collectionView(collectionView, layout: self, shouldRenderSectionBackgroundForSection: section) {
+                let sectionBackgroundAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionBackground, with: IndexPath(item: 0, section: section))
+                sectionBackgroundAttributes.frame = CGRect(x: 0, y: sectionStartY, width: contentWidth, height: maxY - sectionStartY)
+                sectionBackgroundAttributes.zIndex = -1
+                sectionBackgroundCache.append(sectionBackgroundAttributes)
+            }
         }
     }
     
     public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         // Loop through the cache and look for items in the rect
         let itemLayoutAttributes = itemCache.compactMap { return $0.value }
-        return (itemLayoutAttributes + headerCache + footerCache).filter { (attributes) -> Bool in
+        return (itemLayoutAttributes + headerCache + footerCache + sectionBackgroundCache).filter { (attributes) -> Bool in
             return attributes.frame.intersects(rect)
         }
     }
@@ -178,6 +187,8 @@ public class FlexibleColumnLayout: UICollectionViewLayout {
             return headerCache[indexPath.section]
         } else if elementKind == UICollectionElementKindSectionFooter {
             return footerCache[indexPath.section]
+        } else if elementKind == UICollectionElementKindSectionBackground {
+            return sectionBackgroundCache[indexPath.section]
         }
         return nil
     }

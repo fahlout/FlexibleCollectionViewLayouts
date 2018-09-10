@@ -3,7 +3,7 @@
 //  CollectionViewFlowTest
 //
 //  Created by Niklas Fahl on 9/5/18.
-//  Copyright © 2018 Center for Advanced Public Safety. All rights reserved.
+//  Copyright © 2018 fahlout. All rights reserved.
 //
 
 import UIKit

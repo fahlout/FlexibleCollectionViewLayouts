@@ -3,7 +3,7 @@
 //  CollectionViewFlowTest
 //
 //  Created by Niklas Fahl on 9/5/18.
-//  Copyright © 2018 Center for Advanced Public Safety. All rights reserved.
+//  Copyright © 2018 fahlout. All rights reserved.
 //
 
 import UIKit
@@ -13,15 +13,14 @@ class FlexibleColumnLayoutAdvancedDemoCollectionViewController: UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         collectionView?.backgroundColor = UIColor.white
         navigationItem.largeTitleDisplayMode = .never
         
         // Register cells and supplementary views
         collectionView?.register(TextCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView?.register(UINib(nibName: String(describing: TitleCollectionReusableView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: String(describing: TitleCollectionReusableView.self))
-        collectionView?.register(UINib(nibName: String(describing: TitleCollectionReusableView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: String(describing: TitleCollectionReusableView.self))
+        collectionView?.register(UINib(nibName: String(describing: TitleCollectionReusableView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header-footer")
+        collectionView?.register(UINib(nibName: String(describing: TitleCollectionReusableView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "header-footer")
+        collectionView?.register(UINib(nibName: String(describing: TitleCollectionReusableView.self), bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionBackground, withReuseIdentifier: "background")
         
         // Set Flexible Column Layout Delegate and Data Source
         if let layout = collectionView?.collectionViewLayout as? FlexibleColumnLayout {
@@ -72,8 +71,15 @@ extension FlexibleColumnLayoutAdvancedDemoCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if indexPath.section == 2 {
-            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: TitleCollectionReusableView.self), for: indexPath) as? TitleCollectionReusableView else {
+        if indexPath.section == 0 && kind == UICollectionElementKindSectionBackground {
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "background", for: indexPath) as? TitleCollectionReusableView else {
+                fatalError()
+            }
+            view.titleLabel.text = nil
+            view.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
+            return view
+        } else if indexPath.section == 2 && kind != UICollectionElementKindSectionBackground {
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header-footer", for: indexPath) as? TitleCollectionReusableView else {
                 fatalError()
             }
             view.titleLabel.text = "\(kind == UICollectionElementKindSectionHeader ? "Header" : "Footer") \(indexPath.section)"
@@ -126,6 +132,11 @@ extension FlexibleColumnLayoutAdvancedDemoCollectionViewController : FlexibleCol
             return CGSize(width: collectionView.frame.size.width, height: 30)
         }
         return CGSize(width: collectionView.frame.size.width, height: 0)
+    }
+    
+    // Section background
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, shouldRenderSectionBackgroundForSection section: Int) -> Bool {
+        return section == 0
     }
     
     // Height for each item
@@ -183,6 +194,8 @@ extension FlexibleColumnLayoutAdvancedDemoCollectionViewController : FlexibleCol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetsForSection section: Int) -> UIEdgeInsets {
         if section == 0 {
             return UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+        } else if section == 1 {
+            return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         } else if section == collectionView.numberOfSections - 1 {
             return .zero
         }
