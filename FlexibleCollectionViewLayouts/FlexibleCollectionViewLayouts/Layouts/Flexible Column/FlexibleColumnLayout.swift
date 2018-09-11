@@ -41,7 +41,8 @@ public class FlexibleColumnLayout: UICollectionViewLayout {
             // Setup initial max y for section
             let sectionStartY = maxY
             let sectionInsets = delegate.collectionView(collectionView, layout: self, insetsForSection: section)
-            maxY = maxY + sectionInsets.top
+            let interSectionSpacing = section > 0 ? delegate.collectionView(collectionView, layout: self, interSectionSpacingBetweenSection: section - 1, andSection: section) : 0.0
+            maxY = maxY + sectionInsets.top + interSectionSpacing
             
             // Section properties
             let numberOfColumns = dataSource.collectionView(collectionView, numberOfColumnsInSection: section)

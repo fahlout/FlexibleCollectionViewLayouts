@@ -76,7 +76,7 @@ extension FlexibleColumnLayoutAdvancedDemoCollectionViewController {
                 fatalError()
             }
             view.titleLabel.text = nil
-            view.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
+            view.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
             return view
         } else if indexPath.section == 2 && kind != UICollectionElementKindSectionBackground {
             guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header-footer", for: indexPath) as? TitleCollectionReusableView else {

@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let menuNavigationController = UINavigationController(rootViewController: menuVC)
         menuNavigationController.navigationBar.prefersLargeTitles = true
+//        menuNavigationController.navigationBar.largeTitleTextAttributes =
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = menuNavigationController

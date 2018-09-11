@@ -26,6 +26,7 @@ public protocol FlexibleColumnLayoutDelegate: UICollectionViewDelegate {
     // Spacing and insets
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, lineSpacingForSection section: Int) -> CGFloat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, interitemSpacingForSection section: Int) -> CGFloat
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, interSectionSpacingBetweenSection firstSection: Int, andSection secondSection: Int) -> CGFloat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetsForSection section: Int) -> UIEdgeInsets
 }
 
@@ -50,7 +51,7 @@ extension FlexibleColumnLayoutDelegate {
         return FlexibleColumnLayoutEqualHeightToColumnWidth
     }
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: UICollectionViewLayout, heightMultipleForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return 1.0
+        return 1
     }
     
     // Column size
@@ -60,10 +61,13 @@ extension FlexibleColumnLayoutDelegate {
     
     // Spacing and insets
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, lineSpacingForSection section: Int) -> CGFloat {
-        return 0.0
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, interitemSpacingForSection section: Int) -> CGFloat {
-        return 0.0
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, interSectionSpacingBetweenSection firstSection: Int, andSection secondSection: Int) -> CGFloat {
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetsForSection section: Int) -> UIEdgeInsets {
         return .zero
